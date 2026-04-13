@@ -1,10 +1,14 @@
 import gradio as gr
+import pandas as pd
 
-b=True
+
 
 def run(user,key):
     playlist=parse_songs(user)
-    return fix_input(merge_sort(playlist,key))
+    df=plot(key)
+    return (
+      gr.BarPlot(value=df, x="Song", y="Type", sort=None),  fix_input(merge_sort(playlist,key))
+    )
 
 
 def merge_sort(playlist,key):
@@ -34,18 +38,26 @@ def merge(left, right,key):
         j += 1
     return result
 
-def parse_songs(user):
-    playlist = []
-    lines = user.strip().split("\n")
 
+
+
+titles = []
+energies = []
+durations = []
+def parse_songs(user):
+    lines = user.strip().split("\n")
+    playlist = []
     for line in lines:
         parts = line.split(",")
         if len(parts) != 4:
             raise ValueError("Each line must have 4 values: title, artist, energy, duration")
         title = parts[0].strip()
+        titles.append(title)
         artist = parts[1].strip()
         energy = int(parts[2].strip())
+        energies.append(energy)
         duration = int(parts[3].strip())
+        durations.append(duration)
         playlist.append({
             "title": title,
             "artist": artist,
@@ -63,6 +75,17 @@ def fix_input(playlist):
             newsong+="\n"
         songs.clear()
     return newsong.strip().replace("'","").replace("[","").replace("]","")
+
+def plot(key):
+    if key=="energy":
+        sorting=energies
+    else:
+        sorting=durations
+    df = pd.DataFrame({"Song":titles, "Type":sorting})
+
+    return df
+
+
 with gr.Blocks() as demo:
     gr.Markdown("# Playlist Sorter")
     name = gr.Textbox(
@@ -77,7 +100,10 @@ with gr.Blocks() as demo:
 
     output_box = gr.Textbox(label="Sorted Playlist")
     sort_button = gr.Button("Sort")
-    sort_button.click(fn=run, inputs=[name, sort_key], outputs=output_box, api_name="Sorted Playlist")
+    myplot=gr.BarPlot(x="Song", y="Type", y_lim=[0,])
+
+    sort_button.click(fn=run, inputs=[name, sort_key], outputs=[myplot, output_box], api_name="Sorted Playlist")
+
 
 
 demo.launch()
