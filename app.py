@@ -1,23 +1,10 @@
 import gradio as gr
 import pandas as pd
+import time
+import matplotlib.pyplot as plt
 
 
 
-def run(user,key):
-    playlist=parse_songs(user)
-    df=plot(key)
-    return (
-      gr.BarPlot(value=df, x="Song", y="Type", sort=None),  fix_input(merge_sort(playlist,key))
-    )
-
-
-def merge_sort(playlist,key):
-
-    if len(playlist) <= 1:
-        return playlist
-    else:
-        mid = len(playlist) // 2
-        return merge(merge_sort(playlist[:mid],key), merge_sort(playlist[mid:],key),key)
 
 def merge(left, right,key):
     result = []
@@ -45,12 +32,14 @@ titles = []
 energies = []
 durations = []
 def parse_songs(user):
+    if not user:
+        return ["WrongInput"]
     lines = user.strip().split("\n")
     playlist = []
     for line in lines:
         parts = line.split(",")
         if len(parts) != 4:
-            raise ValueError("Each line must have 4 values: title, artist, energy, duration")
+            return ["WrongInput"]
         title = parts[0].strip()
         titles.append(title)
         artist = parts[1].strip()
@@ -85,6 +74,60 @@ def plot(key):
 
     return df
 
+def merge_sort(playlist,key,snap):
+    if len(playlist) <= 1:
+        return playlist
+    else:
+        mid = len(playlist) // 2
+        merged=merge(merge_sort(playlist[:mid],key,snap), merge_sort(playlist[mid:],key,snap),key)
+        snap.append([pd.DataFrame({"Song": [x["title"] for x in merged],"Type": [y[key] for y in merged]}),merged])
+        return merged
+
+def dfuntangled(snapshot):
+    mstring=""
+    for x in snapshot[-1]:
+        mstring+=x["title"]+"\n"
+    return mstring
+
+
+def make_plot(df, key):
+   figure,ax=plt.subplots(figsize=(10,5))
+   ax.bar(df["Song"],df["Type"])
+
+   ax.set_xlabel("Song")
+   ax.set_ylabel(key)
+
+   return figure
+
+
+
+def run(user, key):
+    playlist=parse_songs(user)
+    if playlist==["WrongInput"]:
+        yield(
+            gr.Plot(x="Song", y="Type", kind='bar'), "Incorrect Input. Please try again."
+        )
+        return
+    df = plot(key)
+    yield (
+        make_plot(df,key), "First List"
+    )
+    time.sleep(1.0)
+    snaps=[]
+    final = merge_sort(playlist, key, snaps)
+    for snapshot in snaps:
+        yield (
+            make_plot(snapshot[0],key), "Sorting...\n"+dfuntangled(snapshot)
+        )
+        time.sleep (2.0)
+    if len(snaps)>=1:
+        yield(
+            make_plot(snaps[-1][0],key), "Sorted list: \n"+fix_input(final)
+        )
+    else:
+        yield(
+            make_plot(df,key), "Sorted list: \n "+fix_input(final)
+        )
 
 with gr.Blocks() as demo:
     gr.Markdown("# Playlist Sorter")
@@ -94,81 +137,16 @@ with gr.Blocks() as demo:
         placeholder="Title, Artist, Energy, Duration"
     )
     sort_key = gr.Dropdown(
-        choices=["energy", "duration"],
+        choices=["Energy", "Duration"],
         label="Choose sorting key"
     )
 
     output_box = gr.Textbox(label="Sorted Playlist")
     sort_button = gr.Button("Sort")
-    myplot=gr.BarPlot(x="Song", y="Type", y_lim=[0,])
+    myplot=gr.Plot(label="Visualization")
 
     sort_button.click(fn=run, inputs=[name, sort_key], outputs=[myplot, output_box], api_name="Sorted Playlist")
 
 
 
 demo.launch()
-"""def run_sort_demo(user_input):
-    if not user_input.strip():
-        return "Please enter some values."
-
-    values = [x.strip() for x in user_input.split(",")]
-    values=int(values)
-    return merge_sort(values)
-
-
-def merge_sort(playlist):
-    if len(playlist) <= 1:
-        return playlist
-    else:
-        mid = len(playlist) // 2
-        return merge(merge_sort(playlist[:mid]), merge_sort(playlist[mid:]))
-
-def merge(left, right):
-    result = []
-    i, j = 0, 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-
-    while i < len(left):
-        result.append(left[i])
-        i += 1
-    while j < len(right):
-        result.append(right[j])
-        j += 1
-    return result
-
-song_input = gr.Textbox(
-    label="Enter songs",
-    lines=8,
-    placeholder="Title, Artist, Energy, Duration"
-)
-
-
-def format_songs(songs):
-    result = ""
-    for song in songs:
-        result += f"{song['title']} - {song['artist']} | Energy: {song['energy']} | Duration: {song['duration']}\n"
-    return result
-
-
-demo = gr.Blocks(
-    fn=run_sort_demo,
-    inputs=gr.Textbox(label="Enter values separated by commas"),
-    outputs=gr.Textbox(label="Output"),
-    title="Sorting Project Demo",
-    description="This is my starter Gradio app for my sorting project."
-)
-
-if __name__ == "__main__":
-    demo.launch()"""
-
-
-
-
-
-
