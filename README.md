@@ -36,6 +36,34 @@ Screenshots of first test steps:
 <img width="1232" height="323" alt="image" src="https://github.com/user-attachments/assets/6b02ffb4-dbb2-4b7c-9166-8e2ace4b051e" />
 
 
+
+Test 2: Another regular input
+<img width="1242" height="722" alt="image" src="https://github.com/user-attachments/assets/b613db9a-114e-4417-9ee8-561e4a20baec" />
+
+Performed as expected
+
+Test 3: Already sorted
+<img width="1232" height="705" alt="image" src="https://github.com/user-attachments/assets/b6158070-085e-4cf4-8e13-33a4e08f5db8" />
+
+Performed as expected
+
+Test 4: Reverse Sorted
+<img width="1240" height="706" alt="image" src="https://github.com/user-attachments/assets/271ed825-96bc-4153-a29d-7868009881bd" />
+
+Performed as expected
+
+Test 5: No input, just button
+No image unfortunately
+
+Ran an error because it was not prepared for there not to be input. This led to adding the extra protective mechanism in parse_songs
+
+Test 6: Single song
+<img width="1235" height="666" alt="image" src="https://github.com/user-attachments/assets/df7a710b-96b9-475e-97ac-5772e7785449" />
+
+Remembered all of the old songs in the plot. Led to changing the global lists to reset at the end of run
+
+
+
 ## Problem Breakdown & Computational Thinking
 
 Why I chose this algorithm for the problem: Merge sort is stable and is much easier for viewers to understand in visualizations. The preconditions are that the songs must be input as: Title, Author, Energy, Duration. If it is not in this order, it will not work. This will be validated by making sure that energy is an integer and the duration is a float.
