@@ -49,6 +49,18 @@ Algorithmic Thinking:
 
 
 ## Steps to Run
+1. Read in user input and allow user to select from the two options for sorting (energy, and Duration) through a dropdown.
+2. Parse the input into a list of dictionaries and if there are any issues in the input, output "Incorrect Input. Please try again."
+3. Display a graph of the initial data (converted into a dataframe using an external function) and pause for a second before continuing
+4. Merge sort the list:
+       a) break the list down into half lists recursively until the base case of 1 is reached
+       b) once the base case is reached, sort the lists of one, then the lists of two, all the way back up the stack
+       c) before returning the next call, record the current songs being sorted and their value for the current "key" (sorting key) in this sublist as a snapshot dataframe
+5. Loop through the list of snapshots (dataframes):
+       a) display the dataframe of the snapshot with a plot (created in another function), and the current sublist (in the output box), which has the information decoded in a separate function
+       b) pause on the plot for 2.0s
+6.  Display the final snapshot in a plot and print the final sorted list (again decoded from the list of dictionaries to regular english with a separate function)
+
 
 ## Hugging Face Link
 https://kailashrad-kailash-sorting-demonstration.hf.space
@@ -56,3 +68,5 @@ https://kailashrad-kailash-sorting-demonstration.hf.space
 
 
 ## Author & AI Acknowledgment
+Kailash Radhakrishnan
+AI Acknowledgement/Disclosure: Level 4 AI was used throughout the process of creating this assignment. ChatGPT was used along with the gradio webpage to inspire ideas, help build test-cases, troubleshoot, and steps for the deployment of the app. ChatGPT in particular was used for helping to understand how to make my vision for the assignment come to life through gradio, but no code was AI generated.
