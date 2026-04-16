@@ -25,7 +25,11 @@ Screenshots of first test steps:
 
 <img width="1234" height="332" alt="image" src="https://github.com/user-attachments/assets/827a4b5e-d544-4b6a-9ec7-5c5b0cc26993" />
 
+<img width="1234" height="332" alt="image" src="https://github.com/user-attachments/assets/71078d82-fb02-44a2-ad47-2c77f35735e0" />
 
+<img width="1236" height="333" alt="image" src="https://github.com/user-attachments/assets/fbe7d336-70d1-44aa-8f7e-4a7d46ce8ff5" />
+
+<img width="1233" height="328" alt="image" src="https://github.com/user-attachments/assets/ebde7639-7734-4b8d-a1bd-aa15588dd336" />
 
 <img width="1238" height="332" alt="image" src="https://github.com/user-attachments/assets/cabe6096-ce8c-4494-9f39-e91fe1ae4802" />
 
