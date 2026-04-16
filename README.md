@@ -108,6 +108,12 @@ Focus on:
 Ignore:
     -The title, author and duration or energy
 
+Show:
+Show plots with the images of where in the sorting we are and show which lists are being sorted in an output box
+
+Dont't show:
+Any background variables, or dataframes, or other weird sources that won't be easy for humans to understand
+
 Algorithmic Thinking:
 <img width="1321" height="532" alt="image" src="https://github.com/user-attachments/assets/eb95f9cc-b98d-49d0-b9ab-35dc09ca0ea7" />
 
