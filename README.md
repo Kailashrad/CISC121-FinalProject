@@ -12,6 +12,7 @@ pinned: false
 # Playlist Vibe Builder with Merge Sort
 
 ## Demo video/gif/screenshot of test
+
 <img width="1227" height="810" alt="image" src="https://github.com/user-attachments/assets/16317f79-5833-45ce-9bb5-286079c81ba7" />
 
 Screenshots of first test steps:
@@ -62,6 +63,24 @@ Test 6: Single song
 
 Remembered all of the old songs in the plot. Led to changing the global lists to reset at the end of run
 
+New: <img width="1233" height="665" alt="image" src="https://github.com/user-attachments/assets/ccd93b1f-f305-4452-a3a7-7861999d9534" />
+
+Test 7: Blank middle line
+<img width="1235" height="663" alt="image" src="https://github.com/user-attachments/assets/208d09d9-7e01-4933-ba8b-dccd72386feb" />
+
+Ran an error instead of outputting a formatting issue or something instead. Output plot was not written properly in this conditional.
+<img width="1473" height="711" alt="image" src="https://github.com/user-attachments/assets/9faa830b-6400-405a-8a36-e7c26538beb0" />
+
+Test 8: Missing field
+<img width="1479" height="706" alt="image" src="https://github.com/user-attachments/assets/98fe9c29-d1fc-4b36-b6d9-1764b7148b72" />
+Performed as expected
+
+Test 9: Non-integer input
+<img width="1477" height="712" alt="image" src="https://github.com/user-attachments/assets/eff0e233-5ca8-4cf2-a0b2-38fb65f18d8c" />
+
+Ran an error because there is no case to check this and reject this input.
+
+<img width="1467" height="709" alt="image" src="https://github.com/user-attachments/assets/3739eb3c-b063-4b11-9783-1678cb1c87c9" />
 
 
 ## Problem Breakdown & Computational Thinking
