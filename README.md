@@ -14,6 +14,23 @@ pinned: false
 ## Demo video/gif/screenshot of test
 <img width="1227" height="810" alt="image" src="https://github.com/user-attachments/assets/16317f79-5833-45ce-9bb5-286079c81ba7" />
 
+Screenshots of first test steps:
+<img width="1233" height="327" alt="image" src="https://github.com/user-attachments/assets/84d9da71-1149-4509-b098-4b2a972f458d" />
+
+<img width="1234" height="327" alt="image" src="https://github.com/user-attachments/assets/62b9e04c-5b1a-42c3-a981-6a9cfe214b99" />
+
+<img width="1238" height="332" alt="image" src="https://github.com/user-attachments/assets/9ce5ea82-3509-4d6b-bb67-51bbc5beb8a8" />
+
+<img width="1236" height="324" alt="image" src="https://github.com/user-attachments/assets/bae05acc-7cac-4fff-9281-35d86b441f4d" />
+
+<img width="1234" height="332" alt="image" src="https://github.com/user-attachments/assets/827a4b5e-d544-4b6a-9ec7-5c5b0cc26993" />
+
+
+
+<img width="1238" height="332" alt="image" src="https://github.com/user-attachments/assets/cabe6096-ce8c-4494-9f39-e91fe1ae4802" />
+
+<img width="1232" height="323" alt="image" src="https://github.com/user-attachments/assets/6b02ffb4-dbb2-4b7c-9166-8e2ace4b051e" />
+
 
 ## Problem Breakdown & Computational Thinking
 
