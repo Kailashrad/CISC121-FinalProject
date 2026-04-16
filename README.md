@@ -39,6 +39,7 @@ Ignore:
     -The title, author and duration or energy
 
 Algorithmic Thinking:
+<img width="1321" height="532" alt="image" src="https://github.com/user-attachments/assets/eb95f9cc-b98d-49d0-b9ab-35dc09ca0ea7" />
 
 
 
