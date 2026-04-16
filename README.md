@@ -138,3 +138,7 @@ https://kailashrad-kailash-sorting-demonstration.hf.space
 ## Author & AI Acknowledgment
 Kailash Radhakrishnan
 AI Acknowledgement/Disclosure: Level 4 AI was used throughout the process of creating this assignment. ChatGPT was used along with the gradio webpage to inspire ideas, help build test-cases, troubleshoot, and steps for the deployment of the app. ChatGPT in particular was used for helping to understand how to make my vision for the assignment come to life through gradio, but no code was AI generated.
+
+
+Chat link:
+https://chatgpt.com/share/69e05b5c-6194-83ea-b927-81728e934c18
