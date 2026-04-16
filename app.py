@@ -20,9 +20,19 @@ def parse_songs(user):
     lines = user.strip().split("\n")                            #Removes extra spaces and splits by lines of input
     playlist = []                                               #New list of dictionaries
     for line in lines:
+        if not line:
+            return ["WrongInput"]
         parts = line.split(",")                                 #Split lines into its four different parts
         if len(parts) != 4:
             return ["WrongInput"]                               #Input must include 4 parts, otherwise there is an issue
+        try:
+            test=int(parts[2])
+        except ValueError:
+            return ["WrongInput"]
+        try:
+            test=int(parts[3])
+        except ValueError:
+            return ["WrongInput"]
         title = parts[0].strip()
         titles.append(title)
         artist = parts[1].strip()                               #titles, energy and duration are only used internally, but artist is only needed externally
@@ -107,7 +117,7 @@ def run(user, key):
     playlist=parse_songs(user)
     if playlist==["WrongInput"]:
         yield(
-            gr.Plot(x="Song", y="Type", kind='bar'), "Incorrect Input. Please try again."           #returns an empty chart and prompts to try again
+            gr.Plot(), "Incorrect Input. Please try again."           #returns an empty chart and prompts to try again
         )
         return
     df = plot(key)                                                                                  #First initial dataframe for plotting
@@ -135,7 +145,8 @@ def run(user, key):
     durations.clear()
 
 with gr.Blocks() as demo:
-    gr.Markdown("# Playlist Sorter")
+    gr.Markdown("# Playlist Vibe Builder")
+    gr.Markdown("## Input your songs in the format below (integer energies and durations) to have it sorted! The plots below show the merge sort algorithm and how it splits lists into smaller parts and orders them, then merges sublists together and resorts.")
     name = gr.Textbox(                                                                  #Creates a textbox with basic length and starter text to show how to do everything
         label="Enter songs",
         lines=8,
