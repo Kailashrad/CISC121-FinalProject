@@ -12,6 +12,8 @@ pinned: false
 # Playlist Vibe Builder with Merge Sort
 
 ## Demo video/gif/screenshot of test
+<img width="1227" height="810" alt="image" src="https://github.com/user-attachments/assets/16317f79-5833-45ce-9bb5-286079c81ba7" />
+
 
 ## Problem Breakdown & Computational Thinking
 
