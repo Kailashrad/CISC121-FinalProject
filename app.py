@@ -130,6 +130,9 @@ def run(user, key):
         yield(
             make_plot(df,key), "Sorted list: \n "+clean_input(sorted_list)              #Just need to print the original bar
         )
+    titles.clear()
+    energies.clear()
+    durations.clear()
 
 with gr.Blocks() as demo:
     gr.Markdown("# Playlist Sorter")
