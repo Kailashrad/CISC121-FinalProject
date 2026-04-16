@@ -41,6 +41,9 @@ Ignore:
 Algorithmic Thinking:
 <img width="1321" height="532" alt="image" src="https://github.com/user-attachments/assets/eb95f9cc-b98d-49d0-b9ab-35dc09ca0ea7" />
 
+<img width="1858" height="759" alt="image" src="https://github.com/user-attachments/assets/0aca86d4-5ca6-469f-b9bb-dc232d64f320" />
+
+<img width="932" height="750" alt="image" src="https://github.com/user-attachments/assets/811afbf2-7810-49c0-b4b8-f9ef57b4fbab" />
 
 
 ## Steps to Run
